@@ -1,66 +1,53 @@
-from oat.models.genome import Genome
-from oat.parsers.parser_utils import FeatureBlock, normalize_blocks
+from oat.parsers.base import BaseParser
+from oat.parsers.parser_utils import FeatureBlock
 
 
-def read_tbl(filename):
+class TBLParser(BaseParser):
     """
-    Read an NCBI Feature Table (.tbl).
-    """
-    with open(filename, "r", encoding="utf-8") as infile:
-        return infile.readlines()
-
-
-def parse_blocks(lines):
-    """
-    Parse an NCBI Feature Table into FeatureBlock objects.
+    Parser for NCBI Feature Table (.tbl) files.
     """
 
-    blocks = []
-    current = None
+    def read(self, filename):
+        with open(filename, "r", encoding="utf-8") as infile:
+            return infile.readlines()
 
-    for line in lines:
+    def parse_blocks(self, lines):
 
-        fields = line.rstrip().split("\t")
+        blocks = []
+        current = None
 
-        # -----------------------------------------
-        # New feature block
-        # -----------------------------------------
-        if len(fields) >= 3 and fields[2] != "":
+        for line in lines:
 
-            current = FeatureBlock(
-                start=int(fields[0]),
-                end=int(fields[1]),
-                type=fields[2]
-            )
+            fields = line.rstrip().split("\t")
 
-            blocks.append(current)
-            continue
+            # New feature block
+            if len(fields) >= 3 and fields[2] != "":
 
-        # -----------------------------------------
-        # Qualifier
-        # -----------------------------------------
-        if current is not None and len(fields) >= 5:
+                current = FeatureBlock(
+                    start=int(fields[0]),
+                    end=int(fields[1]),
+                    type=fields[2],
+                )
 
-            key = fields[3]
-            value = fields[4]
+                blocks.append(current)
+                continue
 
-            current.qualifiers[key] = value
+            # Qualifier
+            if current is not None and len(fields) >= 5:
 
-    return blocks
+                key = fields[3]
+                value = fields[4]
+
+                current.qualifiers[key] = value
+
+        return blocks
 
 
 def parse_tbl(filename):
     """
-    Parse an NCBI Feature Table (.tbl)
-    into an OAT Genome object.
+    Convenience function.
     """
 
-    genome = Genome()
+    parser = TBLParser()
 
-    lines = read_tbl(filename)
-
-    blocks = parse_blocks(lines)
-
-    genome.features = normalize_blocks(blocks)
-
-    return genome
+    return parser.parse(filename)
