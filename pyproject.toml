@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oat"
+version = "0.1.0"
+description = "Organelle Annotation Toolkit"
+authors = [
+    {name = "Tran Thanh Biet"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "typer>=0.26"
+]
+
+[project.scripts]
+oat = "oat.cli:app"
+
+[tool.setuptools]
+packages = ["oat", "oat.models"]
