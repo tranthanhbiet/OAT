@@ -1,0 +1,16 @@
+{
+    "format_version": "1.0",
+    "project": {
+        "name": "Test Project",
+        "version": "0.1",
+        "notes": ""
+    },
+    "genome": {
+        "name": "Macrocheira_kaempferi",
+        "organism": "",
+        "sequence": "",
+        "topology": "circular",
+        "genetic_code": 1
+    },
+    "features": []
+}

@@ -22,3 +22,24 @@ class Genome:
 
         # Annotation
         self.features = []
+
+    def validate(self, expected_genes=None):
+        """
+        Validate this genome.
+        """
+        from oat.validation.pipeline import validate
+
+        return validate(
+            self,
+            expected_genes=expected_genes,
+        )
+
+    def merge(self, *others):
+        """
+        Merge this genome with one or more genomes.
+        """
+        from oat.consensus.merge import merge_genomes
+
+        return merge_genomes(
+            [self] + list(others)
+        )
