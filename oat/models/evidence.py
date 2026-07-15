@@ -1,11 +1,27 @@
 class Evidence:
     """
-    Represents evidence supporting a genomic feature.
+    Represents one piece of annotation evidence.
     """
 
     def __init__(self):
+
+        # Tool name
         self.source = ""
-        self.identity = 0.0
-        self.coverage = 0.0
-        self.score = 0.0
+
+        # Version of the tool
+        self.version = ""
+
+        # Confidence (0.0–1.0)
+        self.score = 1.0
+
+        # Optional notes
         self.note = ""
+
+    def __repr__(self):
+
+        return (
+            f"Evidence("
+            f"source='{self.source}', "
+            f"version='{self.version}', "
+            f"score={self.score})"
+        )
