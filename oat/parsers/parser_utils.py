@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+import re
 
 from oat.models.feature import Feature
 
@@ -33,14 +34,13 @@ def normalize_blocks(blocks):
     while i < len(blocks):
 
         block = blocks[i]
+        # Skip source feature (stored as genome metadata later)
+        if block.type == "source":
+             i += 1
+             continue
 
-        # -----------------------------
-        # gene + biological feature
-        # -----------------------------
-        if (
-            block.type == "gene"
-            and i + 1 < len(blocks)
-        ):
+        # Merge gene + CDS/tRNA/rRNA
+        if block.type == "gene" and i + 1 < len(blocks):
 
             next_block = blocks[i + 1]
 
@@ -56,11 +56,9 @@ def normalize_blocks(blocks):
                 feature.start = block.start
                 feature.end = block.end
 
-                # copy gene qualifiers
                 feature.gene = block.qualifiers.get("gene", "")
                 feature.note = block.qualifiers.get("note", "")
 
-                # copy biological qualifiers
                 feature.product = next_block.qualifiers.get("product", "")
                 feature.protein_id = next_block.qualifiers.get("protein_id", "")
                 feature.anticodon = next_block.qualifiers.get("anticodon", "")
@@ -71,9 +69,7 @@ def normalize_blocks(blocks):
                 i += 2
                 continue
 
-        # -----------------------------
-        # standalone feature
-        # -----------------------------
+        # Standalone feature
         feature = Feature()
 
         feature.type = block.type
@@ -92,3 +88,32 @@ def normalize_blocks(blocks):
         i += 1
 
     return features
+
+
+def parse_location(location):
+    """
+    Parse a GenBank location string.
+
+    Supported:
+        1..1575
+        3301..2822
+        complement(3301..2822)
+        complement(2822..3301)
+    """
+
+    # Simple coordinates
+    m = re.match(r"^(\d+)\.\.(\d+)$", location)
+    if m:
+        start = int(m.group(1))
+        end = int(m.group(2))
+        return min(start, end), max(start, end), "+"
+
+    # Reverse strand
+    m = re.match(r"^complement\((\d+)\.\.(\d+)\)$", location)
+    if m:
+        start = int(m.group(1))
+        end = int(m.group(2))
+        return min(start, end), max(start, end), "-"
+
+    # Unsupported locations (join, order, etc.)
+    return 0, 0, "+"
