@@ -3,6 +3,7 @@ from oat.parsers.parser_utils import (
     FeatureBlock,
     parse_location,
 )
+from oat.parsers.genbank_metadata import parse_metadata
 
 
 class GenBankParser(BaseParser):
@@ -34,19 +35,16 @@ class GenBankParser(BaseParser):
 
         for line in lines:
 
-            # Enter FEATURES section
             if line.startswith("FEATURES"):
                 in_features = True
                 continue
 
-            # Stop before sequence
             if line.startswith("ORIGIN"):
                 break
 
             if not in_features:
                 continue
 
-            # New feature
             if line.startswith("     "):
 
                 feature_type = line[5:21].strip()
@@ -70,7 +68,6 @@ class GenBankParser(BaseParser):
 
                     continue
 
-            # Qualifier
             if current is not None:
 
                 stripped = line.strip()
@@ -84,6 +81,25 @@ class GenBankParser(BaseParser):
                     current.qualifiers[key] = value
 
         return blocks
+
+    def parse(self, filename):
+        """
+        Parse a GenBank file into a Genome object.
+        """
+
+        lines = self.read(filename)
+
+        metadata = parse_metadata(lines)
+
+        genome = super().parse(filename)
+
+        genome.definition = metadata["definition"]
+        genome.accession = metadata["accession"]
+        genome.organism = metadata["organism"]
+        genome.length = metadata["length"]
+        genome.topology = metadata["topology"]
+
+        return genome
 
 
 def parse_genbank(filename):
