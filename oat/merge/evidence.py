@@ -7,6 +7,9 @@ def add_source(genome, source_name, version=""):
     in a genome.
     """
 
+    # Remember where this genome came from
+    genome.source = source_name
+
     for feature in genome.features:
 
         e = Evidence()

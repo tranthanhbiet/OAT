@@ -82,6 +82,38 @@ class GenBankParser(BaseParser):
 
         return blocks
 
+    def parse_sequence(self, lines):
+        """
+        Parse the DNA sequence from the ORIGIN section.
+        """
+
+        sequence = []
+
+        in_origin = False
+
+        for line in lines:
+
+            if line.startswith("ORIGIN"):
+                in_origin = True
+                continue
+
+            if not in_origin:
+                continue
+
+            if line.startswith("//"):
+                break
+
+            # Remove position numbers and spaces
+            parts = line.strip().split()
+
+            if not parts:
+                continue
+
+            # Skip first column (base position)
+            sequence.extend(parts[1:])
+
+        return "".join(sequence).upper()
+
     def parse(self, filename):
         """
         Parse a GenBank file into a Genome object.
@@ -98,6 +130,9 @@ class GenBankParser(BaseParser):
         genome.organism = metadata["organism"]
         genome.length = metadata["length"]
         genome.topology = metadata["topology"]
+
+        # NEW
+        genome.sequence = self.parse_sequence(lines)
 
         return genome
 

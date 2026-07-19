@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "OAT: Organelle Annotation Toolkit"
+message: >
+  If you use OAT in your research, please cite this software.
+type: software
+
+authors:
+  - family-names: Tran
+    given-names: Biet Thanh
+    orcid: "https://orcid.org/0000-0002-1849-6089"
+
+version: "0.2.0"
+
+date-released: 2026-07-19
+
+license: MIT
+
+repository-code: "https://github.com/tranthanhbiet/OAT"
+url: "https://github.com/tranthanhbiet/OAT"
+
+keywords:
+  - bioinformatics
+  - organelle genome
+  - genome annotation
+  - mitochondria
+  - chloroplast
+  - genomics
+  - python

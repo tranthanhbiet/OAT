@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+###############################################################################
+# OAT local development (optional)
+###############################################################################
+
+# Local temporary files
+tmp/
+scratch/
+results/
+
+# Local notes
+*.local

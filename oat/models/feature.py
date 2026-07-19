@@ -1,58 +1,58 @@
+from __future__ import annotations
+
+from typing import Any
+
+from oat.models.evidence import Evidence
+
+
 class Feature:
     """
     Represents one biological genome feature.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         # Identity
-        self.type = ""
-        self.gene = ""
-        self.product = ""
+        self.type: str = ""
+        self.gene: str = ""
+        self.product: str = ""
 
         # Coordinates
-        self.start = 0
-        self.end = 0
-        self.strand = "+"
+        self.start: int = 0
+        self.end: int = 0
+        self.strand: str = "+"
 
         # Sequence
-        self.sequence = ""
-        self.translation = ""
+        self.sequence: str = ""
+        self.translation: str = ""
 
         # Annotation
-        self.protein_id = ""
-        self.anticodon = ""
-        self.ec_number = ""
-        self.note = ""
+        self.protein_id: str = ""
+        self.anticodon: str = ""
+        self.ec_number: str = ""
+        self.note: str = ""
 
         # Extra qualifiers
-        self.qualifiers = {}
+        self.qualifiers: dict[str, Any] = {}
 
         # Supporting evidence
-        self.evidence = []
+        self.evidence: list[Evidence] = []
 
-    def add_evidence(self, evidence):
+    def add_evidence(self, evidence: Evidence) -> None:
         """
         Add one Evidence object.
         """
         self.evidence.append(evidence)
 
     @property
-    def confidence(self):
+    def confidence(self) -> int:
         """
         Number of supporting evidence objects.
         """
         return len(self.evidence)
 
-    def __repr__(self):
-        return (
-            f"Feature("
-            f"type='{self.type}', "
-            f"gene='{self.gene}', "
-            f"confidence={self.confidence})"
-        )
     @property
-    def confidence_level(self):
+    def confidence_level(self) -> str:
         """
         Human-readable confidence level.
         """
@@ -66,3 +66,11 @@ class Feature:
             return "Medium"
 
         return "Low"
+
+    def __repr__(self) -> str:
+        return (
+            f"Feature("
+            f"type='{self.type}', "
+            f"gene='{self.gene}', "
+            f"confidence={self.confidence})"
+        )

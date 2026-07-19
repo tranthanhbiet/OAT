@@ -1,0 +1,1 @@
+from oat.naming.canonical import canonical_gene

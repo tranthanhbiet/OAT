@@ -1,23 +1,26 @@
+from __future__ import annotations
+
+
 class Evidence:
     """
     Represents one piece of annotation evidence.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         # Tool name
-        self.source = ""
+        self.source: str = ""
 
         # Version of the tool
-        self.version = ""
+        self.version: str = ""
 
-        # Confidence (0.0–1.0)
-        self.score = 1.0
+        # Confidence score (0.0–1.0)
+        self.score: float = 1.0
 
         # Optional notes
-        self.note = ""
+        self.note: str = ""
 
-    def __repr__(self):
+    def __repr__(self) -> str:
 
         return (
             f"Evidence("

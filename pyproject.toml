@@ -4,18 +4,51 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "oat"
-version = "0.1.0"
-description = "Organelle Annotation Toolkit"
-authors = [
-    {name = "Tran Thanh Biet"}
-]
+version = "0.2.0"
+description = "A Python toolkit for parsing, validating, comparing, and exporting organelle genome annotations."
+readme = "README.md"
+
+# NOTE:
+# Keep this as 3.12 until we verify compatibility with older Python versions.
 requires-python = ">=3.12"
-dependencies = [
-    "typer>=0.26"
+
+license = { text = "MIT" }
+
+authors = [
+    { name = "Tran Thanh Biet" }
 ]
+
+keywords = [
+    "bioinformatics",
+    "genomics",
+    "genome annotation",
+    "organelle genome",
+    "mitochondria",
+    "chloroplast",
+    "GenBank",
+    "GFF3",
+    "Python"
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/tranthanhbiet/OAT"
+Repository = "https://github.com/tranthanhbiet/OAT"
+Issues = "https://github.com/tranthanhbiet/OAT/issues"
 
 [project.scripts]
-oat = "oat.cli:app"
+oat = "oat.cli.main:main"
 
-[tool.setuptools]
-packages = ["oat", "oat.models"]
+[tool.setuptools.packages.find]
+include = ["oat*"]

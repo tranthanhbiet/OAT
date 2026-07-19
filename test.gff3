@@ -1,0 +1,42 @@
+##gff-version 3
+MN547324	OAT	CDS	1	1575	.	+	.	ID=cox1;Name=cox1;product=cytochrome c oxidase subunit I
+MN547324	OAT	tRNA	1885	1967	.	+	.	ID=tRNA-Ser (uga);Name=tRNA-Ser (uga);product=tRNA-Ser
+MN547324	OAT	tRNA	2029	2102	.	+	.	ID=tRNA-Cys (gca);Name=tRNA-Cys (gca);product=tRNA-Cys
+MN547324	OAT	CDS	2185	3186	.	+	.	ID=nad1;Name=nad1;product=NADH dehydrogenase subunit 1
+MN547324	OAT	tRNA	3350	3432	.	+	.	ID=tRNA-Leu (uaa);Name=tRNA-Leu (uaa);product=tRNA-Leu
+MN547324	OAT	tRNA	3449	3522	.	+	.	ID=tRNA-Ile (gau);Name=tRNA-Ile (gau);product=tRNA-Ile
+MN547324	OAT	tRNA	3647	3717	.	+	.	ID=tRNA-Met (cau);Name=tRNA-Met (cau);product=tRNA-Met
+MN547324	OAT	CDS	3814	5340	.	+	.	ID=nad2;Name=nad2;product=NADH dehydrogenase subunit 2
+MN547324	OAT	CDS	5724	7694	.	+	.	ID=nd5;Name=nd5;product=NADH dehydrogenase subunit 5
+MN547324	OAT	tRNA	7898	7970	.	+	.	ID=tRNA-Ala (ugc);Name=tRNA-Ala (ugc);product=tRNA-Ala
+MN547324	OAT	tRNA	7989	8060	.	+	.	ID=tRNA-Met (cau)e;Name=tRNA-Met (cau)e;product=tRNA-Met
+MN547324	OAT	tRNA	8289	8361	.	+	.	ID=tRNA-Phe (gaa);Name=tRNA-Phe (gaa);product=tRNA-Phe
+MN547324	OAT	rRNA	8363	9739	.	+	.	ID=rns;Name=rns;product=small subunit ribosomal RNA
+MN547324	OAT	tRNA	9740	9811	.	+	.	ID=tRNA-Gly (ucc);Name=tRNA-Gly (ucc);product=tRNA-Gly
+MN547324	OAT	tRNA	9851	9923	.	+	.	ID=tRNA-Val (uac);Name=tRNA-Val (uac);product=tRNA-Val
+MN547324	OAT	rRNA	11216	12667	.	+	.	ID=rnl;Name=rnl;product=large subunit ribosomal RNA
+MN547324	OAT	tRNA	13075	13146	.	+	.	ID=tRNA-Tyr (gua);Name=tRNA-Tyr (gua);product=tRNA-Tyr
+MN547324	OAT	tRNA	13279	13350	.	+	.	ID=tRNA-Ile (cau);Name=tRNA-Ile (cau);product=tRNA-Ile
+MN547324	OAT	CDS	13362	14132	.	+	.	ID=cox2;Name=cox2;product=cytochrome c oxidase subunit II
+MN547324	OAT	tRNA	14335	14407	.	+	.	ID=tRNA-Lys (uuu);Name=tRNA-Lys (uuu);product=tRNA-Lys
+MN547324	OAT	CDS	14409	14636	.	+	.	ID=atp8;Name=atp8;product=ATP synthase F0 subunit 8
+MN547324	OAT	CDS	14827	15561	.	+	.	ID=atp6;Name=atp6;product=ATP synthase F0 subunit 6
+MN547324	OAT	tRNA	15745	15817	.	+	.	ID=tRNA-Arg (ucu);Name=tRNA-Arg (ucu);product=tRNA-Arg
+MN547324	OAT	CDS	15933	16721	.	+	.	ID=cox3;Name=cox3;product=cytochrome c oxidase subunit III
+MN547324	OAT	tRNA	16925	16996	.	+	.	ID=tRNA-Gln (uug);Name=tRNA-Gln (uug);product=tRNA-Gln
+MN547324	OAT	tRNA	17088	17158	.	+	.	ID=tRNA-Trp (uca);Name=tRNA-Trp (uca);product=tRNA-Trp
+MN547324	OAT	tRNA	17234	17305	.	+	.	ID=tRAN-Leu (uag);Name=tRAN-Leu (uag);product=tRNA-Leu
+MN547324	OAT	tRNA	17381	17452	.	+	.	ID=tRNA-Asn (guu);Name=tRNA-Asn (guu);product=tRNA-Asn
+MN547324	OAT	CDS	17475	18647	.	+	.	ID=cytb;Name=cytb;product=cytochrome b
+MN547324	OAT	tRNA	18759	18831	.	+	.	ID=tRNA-Thr (ugu);Name=tRNA-Thr (ugu);product=tRNA-Thr
+MN547324	OAT	CDS	18951	19187	.	+	.	ID=atp9;Name=atp9;product=ATP synthase F0 subunit 9
+MN547324	OAT	tRNA	19342	19416	.	+	.	ID=tRNA-Ser (gcu);Name=tRNA-Ser (gcu);product=tRNA-Ser
+MN547324	OAT	tRNA	19425	19500	.	+	.	ID=tRNA-Pro (ugg);Name=tRNA-Pro (ugg);product=tRNA-Pro
+MN547324	OAT	CDS	19584	21038	.	+	.	ID=nad4;Name=nad4;product=NADH dehydrogenase subunit 4
+MN547324	OAT	tRNA	21204	21275	.	+	.	ID=tRNA-His (gug);Name=tRNA-His (gug);product=tRNA-His
+MN547324	OAT	tRNA	21374	21446	.	+	.	ID=tRNA-Glu (uuc);Name=tRNA-Glu (uuc);product=tRNA-Glu
+MN547324	OAT	CDS	21447	22019	.	+	.	ID=nad6;Name=nad6;product=NADH dehydrogenase subunit 6
+MN547324	OAT	tRNA	22152	22221	.	+	.	ID=tRNA-Asp (guc);Name=tRNA-Asp (guc);product=tRNA-Asp
+MN547324	OAT	CDS	22416	22772	.	+	.	ID=nad3;Name=nad3;product=NADH dehydrogenase subunit 3
+MN547324	OAT	tRNA	23000	23070	.	+	.	ID=tRNA-Arg (ucg);Name=tRNA-Arg (ucg);product=tRNA-Arg
+MN547324	OAT	CDS	23071	23370	.	+	.	ID=nad4L;Name=nad4L;product=NADH dehydrogenase subunit 4L
